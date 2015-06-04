@@ -3,4 +3,8 @@ body { background: #333; }
 
 h2 span, section h3 { display: none;}
 body { font-size: xx-large; }
+nav#n1{ text-align: center;}
+ul.creditos{ text-align: center; }
+ul.creditos > li{ margin-bottom: 2px;}
+span#aislado{display: none;}
 footer, input { font-size: large; }

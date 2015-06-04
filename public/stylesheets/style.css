@@ -1,9 +1,25 @@
 *{ margin: 0; padding: 0;}
+a{ text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
 body {  font: 16px Georgia, serif; }
 #page-wrap { margin: 2% auto; color: white; }
-#page-wrap > .main { border: 1px solid #999; padding: 1%; margin-bottom: 1px; color: black;}
+#page-wrap > .main { border: 1px solid #999; padding: 1%; margin-bottom: 1px; }
 
 section > div { padding: 20px; }
-header, nav, section { background: #eee; text-align: center; }
-footer { background: #eee; text-align: center; }
+section.main{ color: black;}
+
+nav#n1{ text-align: left;}
+header, nav.main, section { background: #eee; text-align: center; }
+header.main{background: #534292; color: #fff;}
+footer { background: #222; color: #fff; text-align: center; }
 nav span { margin: 0px 10px 0px 0px;}
+
+ul.creditos{ list-style: none; text-align: left; }
+ul.creditos > li{ margin-bottom: 4px;}
+span#aislado{ text-align: center; background: #000; color: #fff; padding: 8px; font-family: Helvetica;}
+
+footer nav a{ color: #fff;}
+footer #mygit{ background: url('../images/github-light.png') no-repeat; width: 32px; height: 32px; display: inline-block;
+text-indent: -9999px;}
+footer #mygit:hover{ background: url('../images/github.png') no-repeat;}

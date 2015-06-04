@@ -17,14 +17,18 @@
 		<nav class="main" id="n1" role="navigation">
 			<span><a href="/">Inicio</a></span>
 			<span><a href="/quizes/question">Preguntas</a></span>
+			<span><a href="/author">Créditos</a>
 		</nav>
 
 		<section class="main" id="s1">
-			<%= body %>
+			<%- body %>
 		</section>
 
 		<footer class="main" id="f1">
-			<a href="http://es.wikipedia.org/wiki/Quiz">¿Que es un Quiz?</a>
+			<nav class="footer" role="navigation">
+				<span><a href="http://es.wikipedia.org/wiki/Quiz" onclick="window.open(this.href); return false;">¿Que es un Quiz?</a></span>
+				<span><a href="https://github.com/HiSalim/quiz-2015" id="mygit" onclick="window.open(this.href);return false;">Mi GitHub</a></span>
+			</nav>
 		</footer>
 	</div>
 
