@@ -1,5 +1,5 @@
 <form method="get" action="/quizes/answer">
 	<p>Pregunta: <%= pregunta %></p>
-	<input type="text" name="respuesta" value="Respuesta" />
+	<input type="text" name="respuesta" value="Respuesta..." onclick="this.value=''; return false;" />
 	<input type="submit" value="Enviar">
 </form>
