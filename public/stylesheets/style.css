@@ -8,6 +8,7 @@ body {  font: 16px Georgia, serif; }
 
 section > div { padding: 20px; }
 section.main{ color: black;}
+section.main table td{text-align: left;}
 
 nav#n1{ text-align: left;}
 header, nav.main, section { background: #eee; text-align: center; }
