@@ -14,8 +14,19 @@ exports.load = function(req, res, next, quizId) {
 };
 // GET /quizes
 exports.index = function(req, res) {
-	models.Quiz.findAll().then(function(quizes) {
-		res.render('quizes/index', {quizes: quizes });
+	var query_where = '%'; // Caso para mostrar por defecto el listado por completo
+	var busqueda = false; // Indicador de que no se realiza ninguna busqueda 
+	// Insertar comodin para la busqueda de un patrón
+	if( req.query.search )
+	{
+		query_where = '%'+req.query.search+'%';
+		// Se sustituye los espacios por un '%'
+		query_where = query_where.replace(/[\n\t\s]+/gm, '%');
+		busqueda = true; // Se ha realizado una busqueda
+	}
+	// Consultamos la BD
+	models.Quiz.findAll({where: ["pregunta like ?", query_where], order: 'pregunta ASC'}).then( function(quizes){
+		res.render('quizes/index', {quizes: quizes, busqueda: busqueda});
 	}).catch(function(error){ next(error);})
 };
 
