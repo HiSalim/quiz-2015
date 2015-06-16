@@ -4,7 +4,8 @@ body { background: #333; }
 h2 span, section h3 { display: none;}
 body { font-size: xx-large; }
 nav#n1{ text-align: center;}
+section.main table{ width: 99%;}
 ul.creditos{ text-align: center; }
 ul.creditos > li{ margin-bottom: 2px;}
 span#aislado{display: none;}
-footer, input { font-size: large; }
+footer, input, button { font-size: large; }

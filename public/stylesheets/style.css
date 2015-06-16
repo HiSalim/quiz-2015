@@ -1,10 +1,13 @@
 *{ margin: 0; padding: 0;}
 a{ text-decoration: none; }
 a:hover{ text-decoration: underline; }
+p{ margin-bottom: 0.5em; }
 
 body {  font: 16px Georgia, serif; }
 #page-wrap { margin: 2% auto; color: white; }
-#page-wrap > .main { border: 1px solid #999; padding: 1%; margin-bottom: 1px; }
+#page-wrap > .main, #page-wrapper > .main { border: 1px solid #999; border-bottom: none; padding: 1%; }
+#page-wrapper{ overflow: hidden; margin: 2px 0;}
+#page-wrapper > nav#n1{ margin-bottom: -300px; padding-bottom: 300px; }
 
 section > div { padding: 20px; }
 section.main{ color: black;}
@@ -12,9 +15,19 @@ section.main table{ width: 60%; }
 section.main table caption{ font-weight: bold; background: #666; padding: 4px 0px; color: #fff; margin-bottom: 1em; border: 2px solid #333; }
 section.main table td{text-align: left;}
 section.main .busqueda h3{ margin-bottom: 4px; }
-section.main .busqueda input{ padding: 4px; font-family: Helvetica;}
-section.main .busqueda input#search{ border: 1px solid #444; color: #222;}
+section.main .busqueda input#search, input#respreg{ border: 1px solid #444; color: #222;}
 section.main .busqueda input#enviar{ border: none; background: #534292; color: #fff;}
+section.main button, input{font-weight: bold; border: none; padding: 4px; font-family: Helvetica;}
+section.main form#formanswer{ margin-bottom: 2%; }
+section.main form ul#formadd{list-style: none; display: inline-block;}
+section.main form ul#formadd li{ float: left; margin: 0.5em 0.2em; }
+button#create, button#cancelar, input#guardar, input#enviar{ color: #fff;}
+button#create{ background: #343C45; }
+input#guardar, input#enviar{ background: #0F6092; }
+button#cancelar{ background: #181D20;}
+label.rem{ font-weight: bold; color: #0F171F;}
+input#preg, input#resp{ border-bottom: 1px solid #222; background: none; margin-bottom: 1%;}
+button:hover, input#enviar:hover, input#guardar:hover{ cursor: pointer;}
 
 nav#n1{ text-align: left;}
 header, nav.main, section { background: #eee; text-align: center; }
