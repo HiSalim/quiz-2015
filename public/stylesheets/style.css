@@ -3,6 +3,11 @@ a{ text-decoration: none; }
 a:hover{ text-decoration: underline; }
 p{ margin-bottom: 0.5em; }
 
+nav span{ margin: 0 10px 0 0;}
+
+#ErrorMsgs{ color: #fff; font-size: smaler; margin-bottom: 0.75em; background: #EA0C00; padding: 4px 0; font-weight: bold;}
+#ErrorMsgs span{ font-weight: normal;}
+
 body {  font: 16px Georgia, serif; }
 #page-wrap { margin: 2% auto; color: white; }
 #page-wrap > .main, #page-wrapper > .main { border: 1px solid #999; border-bottom: none; padding: 1%; }

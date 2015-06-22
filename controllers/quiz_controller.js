@@ -26,14 +26,14 @@ exports.index = function(req, res) {
 	}
 	// Consultamos la BD
 	models.Quiz.findAll({where: ["pregunta like ?", query_where], order: 'pregunta ASC'}).then( function(quizes){
-		res.render('quizes/index', {quizes: quizes, busqueda: busqueda});
+		res.render('quizes/index', {quizes: quizes, busqueda: busqueda, errors: []});
 	}).catch(function(error){ next(error);})
 };
 
 // GET /quizes/:id
 exports.show = function(req, res) {
 	models.Quiz.find(req.params.quizId).then(function(quiz) {
-		res.render('quizes/show', { quiz: req.quiz});
+		res.render('quizes/show', { quiz: req.quiz, errors: []});
 	})
 };
 
@@ -44,7 +44,7 @@ exports.answer = function(req, res) {
 		if(req.query.respuesta === req.quiz.respuesta ){
 			resultado = 'Correcto';
 		}
-		res.render('quizes/answer', { quiz: req.quiz, respuesta: resultado});
+		res.render('quizes/answer', { quiz: req.quiz, respuesta: resultado, errors: []});
 	})
 };
 
@@ -54,22 +54,34 @@ exports.new = function(req, res){
 		{pregunta: "Pregunta", respuesta: "Respuesta"}
 	);
 
-	res.render('quizes/new', {quiz: quiz});
+	res.render('quizes/new', {quiz: quiz, errors: []});
 };
 
 // POST /quizes/create
 exports.create = function(req, res){
-		console.log('entramos');
 	var quiz = models.Quiz.build( req.body.quiz );
-		console.log('entramos');
-	// guarda en BD los campos pregunta y respuesta de quiz
-	quiz.save({fields: ["pregunta", "respuesta"]}).then(function(){
-		res.redirect('/quizes');
-	}) // Redireccion HTTP (URL relativo) lista de preguntas
+	var errors = quiz.validate();
+
+	if( errors )
+	{
+		var _errors = new Array();
+		var cont = 0;
+
+		for (var prop in errors) _errors[cont++]={message: errors[prop]}; 
+
+		res.render('quizes/new', {quiz: quiz, errors: _errors});
+
+	}else{
+		// guarda en BD los campos pregunta y respuesta de quiz
+		quiz.save({fields: ["pregunta", "respuesta"]}).then( function(){
+			res.redirect('/quizes');
+		}) // Redireccion HTTP (URL relativo) lista de preguntas
+	}
+
 };
 
 // GET /author
 exports.author = function(req, res){
 	var myphoto = 'images/photo.png';
-	res.render('author', {photo: myphoto});
+	res.render('author', {photo: myphoto, errors: []});
 };
