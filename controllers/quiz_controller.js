@@ -60,23 +60,47 @@ exports.new = function(req, res){
 // POST /quizes/create
 exports.create = function(req, res){
 	var quiz = models.Quiz.build( req.body.quiz );
-	var errors = quiz.validate();
+	// Comprobamos si contiene algun tipo de error y devolvemos un array con todos los errores posibles
+	// nota: método then() de validate() no existe en la version 1.7.0 de sequelize
+	var Validacion = require('./hack');
+	var validacion = new Validacion(quiz);
 
-	if( errors )
+	if( validacion.comprobar() )
 	{
-		var _errors = new Array();
-		var cont = 0;
-
-		for (var prop in errors) _errors[cont++]={message: errors[prop]}; 
-
-		res.render('quizes/new', {quiz: quiz, errors: _errors});
-
+		res.render('quizes/new', {quiz: quiz, errors: validacion.errores()});
 	}else{
 		// guarda en BD los campos pregunta y respuesta de quiz
 		quiz.save({fields: ["pregunta", "respuesta"]}).then( function(){
 			res.redirect('/quizes');
 		}) // Redireccion HTTP (URL relativo) lista de preguntas
 	}
+
+};
+
+// GET /quizes/:id/edit
+exports.edit = function(req, res){
+	var quiz = req.quiz; // autoload de instancia de quiz
+
+	res.render('quizes/edit', {quiz: quiz, errors: []});
+};
+
+// GET /quizes/:id
+exports.update = function(req, res){
+	req.quiz.pregunta = req.body.quiz.pregunta;
+	req.quiz.respuesta = req.body.quiz.respuesta;
+
+	// Comprobamos si contiene algun tipo de error y devolvemos un array con todos los errores posibles
+	// nota: método then() de validate() no existe en la version 1.7.0 de sequelize
+	var Validacion = require('./hack');
+	var validacion = new Validacion(req.quiz);
+
+	if( validacion.comprobar() ){
+		res.render('quizes/edit', {quiz: req.quiz, errors: validacion.errores()});
+	}else{
+		req.quiz 	// save: guarda campos pregunta y respuesta en DB
+		.save( {fields: ["pregunta",  "respuesta"]})
+		.then( function(){ res.redirect('/quizes');});
+	}	// Redirección HTTP a la lista de preguntas (URL relativo)
 
 };
 

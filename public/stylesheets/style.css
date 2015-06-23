@@ -16,9 +16,9 @@ body {  font: 16px Georgia, serif; }
 
 section > div { padding: 20px; }
 section.main{ color: black;}
-section.main table{ width: 60%; }
 section.main table caption{ font-weight: bold; background: #666; padding: 4px 0px; color: #fff; margin-bottom: 1em; border: 2px solid #333; }
 section.main table td{text-align: left;}
+section.main table td button{background: #3347FB; color: #fff; margin-left: 1em; }
 section.main .busqueda h3{ margin-bottom: 4px; }
 section.main .busqueda input#search, input#respreg{ border: 1px solid #444; color: #222;}
 section.main .busqueda input#enviar{ border: none; background: #534292; color: #fff;}
