@@ -30,6 +30,7 @@ button#create, button#cancelar, input#guardar, input#enviar{ color: #fff;}
 button#create{ background: #343C45; }
 input#guardar, input#enviar{ background: #0F6092; }
 button#cancelar{ background: #181D20;}
+button#borrar{ background: #BD0000;}
 label.rem{ font-weight: bold; color: #0F171F;}
 input#preg, input#resp{ border-bottom: 1px solid #222; background: none; margin-bottom: 1%;}
 button:hover, input#enviar:hover, input#guardar:hover{ cursor: pointer;}
