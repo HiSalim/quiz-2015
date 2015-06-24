@@ -14,6 +14,9 @@ module.exports = function(sequelize, DataTypes){
 				  	validate: { notEmpty: {msg: "Falta Respuesta"}, 
 				  				notIn: { args: [['respuesta', 'Respuesta']], msg: 'Debe introducir una respuesta' } // Se debe introducir algo
 				  			  }
-				  	}
+				  	},
+				  tema: { 
+				  	type: DataTypes.STRING
+					}
 				});
 }

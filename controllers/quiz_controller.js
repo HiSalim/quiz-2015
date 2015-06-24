@@ -51,7 +51,7 @@ exports.answer = function(req, res) {
 // GET /quizes/new
 exports.new = function(req, res){
 	var quiz = models.Quiz.build( // crea objeto quiz
-		{pregunta: "Pregunta", respuesta: "Respuesta"}
+		{pregunta: "Pregunta", respuesta: "Respuesta", tema: "Otro"}
 	);
 
 	res.render('quizes/new', {quiz: quiz, errors: []});
@@ -70,7 +70,7 @@ exports.create = function(req, res){
 		res.render('quizes/new', {quiz: quiz, errors: validacion.errores()});
 	}else{
 		// guarda en BD los campos pregunta y respuesta de quiz
-		quiz.save({fields: ["pregunta", "respuesta"]}).then( function(){
+		quiz.save({fields: ["pregunta", "respuesta", "tema"]}).then( function(){
 			res.redirect('/quizes');
 		}) // Redireccion HTTP (URL relativo) lista de preguntas
 	}
@@ -88,6 +88,7 @@ exports.edit = function(req, res){
 exports.update = function(req, res){
 	req.quiz.pregunta = req.body.quiz.pregunta;
 	req.quiz.respuesta = req.body.quiz.respuesta;
+	req.quiz.tema = req.body.quiz.tema;
 
 	// Comprobamos si contiene algun tipo de error y devolvemos un array con todos los errores posibles
 	// nota: método then() de validate() no existe en la version 1.7.0 de sequelize
@@ -96,11 +97,11 @@ exports.update = function(req, res){
 
 	if( validacion.comprobar() ){
 		res.render('quizes/edit', {quiz: req.quiz, errors: validacion.errores()});
-	}else{
-		req.quiz 	// save: guarda campos pregunta y respuesta en DB
-		.save( {fields: ["pregunta",  "respuesta"]})
-		.then( function(){ res.redirect('/quizes');});
-	}	// Redirección HTTP a la lista de preguntas (URL relativo)
+	}else{ // save: guarda campos pregunta y respuesta en DB
+		req.quiz.save( {fields: ["pregunta",  "respuesta", "tema"]}).then( function(){ 
+			res.redirect('/quizes');
+		}); // Redirección HTTP a la lista de preguntas (URL relativo)
+	}
 
 };
 

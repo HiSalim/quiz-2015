@@ -1,7 +1,7 @@
 *{ margin: 0; padding: 0;}
 a{ text-decoration: none; }
 a:hover{ text-decoration: underline; }
-p{ margin-bottom: 0.5em; }
+p{ margin: 0.5em 0; }
 
 nav span{ margin: 0 10px 0 0;}
 
@@ -26,6 +26,8 @@ section.main button, input{font-weight: bold; border: none; padding: 4px; font-f
 section.main form#formanswer{ margin-bottom: 2%; }
 section.main form ul#formadd{list-style: none; display: inline-block;}
 section.main form ul#formadd li{ float: left; margin: 0.5em 0.2em; }
+section.main form ul#formadd li select, section.main form ul#formadd li option{background: none; color: #000; border: 1px solid #222;}
+section.main form ul#formadd li option{border-top: none; border-bottom: none;}
 button#create, button#cancelar, input#guardar, input#enviar{ color: #fff;}
 button#create{ background: #343C45; }
 input#guardar, input#enviar{ background: #0F6092; }
