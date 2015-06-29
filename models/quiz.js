@@ -16,7 +16,8 @@ module.exports = function(sequelize, DataTypes){
 				  			  }
 				  	},
 				  tema: { 
-				  	type: DataTypes.STRING
+				  	type: DataTypes.ENUM,
+				  	values: ['Otro', 'Humanidades', 'Ocio', 'Ciencia', 'Tecnología']
 					}
 				});
 }

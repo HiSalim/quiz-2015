@@ -3,3 +3,17 @@
 	<input type="text" name="respuesta" value="Respuesta" id="respreg" onclick="this.value=''; return false;"/>
 	<input type="submit" value="Enviar" id="enviar">
 </form>
+
+<p><a href="/quizes/<%= quiz.id %>/comments/new"><button id="ncomment">Nuevo comentario</button></a></p>
+
+<% if( quiz.comments )
+{ %>
+	<div class="listcomment">
+		<p><strong>Comentarios:</strong></p>
+		<ul>
+		<% for(index in quiz.comments){ %>
+				<li><%= quiz.comments[index].texto %></li>
+		<% } %>
+		</ul>
+	</div>
+<% } %>
