@@ -6,7 +6,7 @@
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button id="ncomment">Nuevo comentario</button></a></p>
 
-<% if( quiz.comments )
+<% if( quiz.comments.length )
 { %>
 	<div class="listcomment">
 		<p><strong>Comentarios:</strong></p>

@@ -30,15 +30,15 @@ section.main form ul#formadd li select, section.main form ul#formadd li option{b
 section.main form ul#formadd li option{border-top: none; border-bottom: none;}
 section.main form#formcomment{margin: 0.5em 0;}
 section.main form#formcomment input{ border: 1px solid #222;}
-button#create, button#cancelar, input#guardar, input#enviar, button#enviar, button#ncomment{ color: #fff;}
+button#create, button#cancelar, input#guardar, input#enviar, button#enviar, button#ncomment, .actions input{ color: #fff;}
 button#create{ background: #343C45; }
-input#guardar, input#enviar, button#enviar{ background: #0F6092; }
+input#guardar, input#enviar, button#enviar, .actions input{ background: #0F6092; }
 button#cancelar{ background: #181D20;}
 button#borrar{ background: #BD0000;}
 button#ncomment{ background: #0A0A0A;}
 label.rem{ font-weight: bold; color: #0F171F;}
 input#preg, input#resp{ border-bottom: 1px solid #222; background: none; margin-bottom: 1%;}
-button:hover, input#enviar:hover, button#enviar:hover, input#guardar:hover, button#ncomment:hover{ cursor: pointer;}
+button:hover, input#enviar:hover, button#enviar:hover, input#guardar:hover, button#ncomment:hover, .actions input:hover{ cursor: pointer;}
 
 .listcomment{ text-align: left; }
 .listcomment ul{ list-style: inside numeric; }
@@ -48,6 +48,11 @@ header, nav.main, section { background: #eee; text-align: center; }
 header.main{background: #534292; color: #fff;}
 footer { background: #222; color: #fff; text-align: center; }
 nav span { margin: 0px 10px 0px 0px;}
+
+.right{ float: right;}
+.right a{color: #fff; font-weight: bold; margin-left: 0.6em; }
+.field{ margin: 0.5em 0;}
+.field input{ border: 1px solid #444; margin-top: 0.2em;}
 
 ul.creditos{ list-style: none; text-align: left; }
 ul.creditos > li{ margin-bottom: 4px;}
