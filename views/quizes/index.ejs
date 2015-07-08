@@ -12,17 +12,24 @@
 	<% var i; for(i=0; i<quizes.length; i++) { %>
 			<tr>
 				<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
-				<td><a href="quizes/<%= quizes[i].id %>/edit"><button>editar</button></td>
-				<td>
-					<form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
-						<button id="borrar" type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar</button>
-					</form>
-				</td>
+				<% if( session.user ){ %>
+					<td><a href="quizes/<%= quizes[i].id %>/edit"><button>editar</button></td>
+					<td>
+						<form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
+							<button id="borrar" type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar</button>
+						</form>
+					</td>
+				<% } %>
 			</tr>
 	<% } %>
 	</tbody>
 </table>
-<p><a href="/quizes/new"><button type="button" id="create">Crear pregunta</button></a></p>
+
+<p>
+<% if( session.user ){ %>
+	<a href="/quizes/new"><button type="button" id="create">Crear pregunta</button></a>
+<% } %>
+</p>
 
 <div class='busqueda'>
 	<h3>Búsqueda de preguntas</h3>
