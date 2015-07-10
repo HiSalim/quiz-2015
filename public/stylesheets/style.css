@@ -30,9 +30,9 @@ section.main form ul#formadd li select, section.main form ul#formadd li option{b
 section.main form ul#formadd li option{border-top: none; border-bottom: none;}
 section.main form#formcomment{margin: 0.5em 0;}
 section.main form#formcomment input{ border: 1px solid #222;}
-button#create, button#cancelar, input#guardar, input#enviar, button#enviar, button#ncomment, .actions input{ color: #fff;}
+button#create, button#cancelar, input#guardar, input#enviar, button#enviar, button#ncomment, .actions input, button#publicar{ color: #fff;}
 button#create{ background: #343C45; }
-input#guardar, input#enviar, button#enviar, .actions input{ background: #0F6092; }
+input#guardar, input#enviar, button#enviar, .actions input, button#publicar{ background: #0F6092; }
 button#cancelar{ background: #181D20;}
 button#borrar{ background: #BD0000;}
 button#ncomment{ background: #0A0A0A;}
@@ -42,6 +42,7 @@ button:hover, input#enviar:hover, button#enviar:hover, input#guardar:hover, butt
 
 .listcomment{ text-align: left; }
 .listcomment ul{ list-style: inside numeric; }
+.listcomment li{ margin-bottom: 0.3em;}
 
 nav#n1{ text-align: left;}
 header, nav.main, section { background: #eee; text-align: center; }
